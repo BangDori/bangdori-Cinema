@@ -15,17 +15,17 @@ class App extends Component {
     super(props);
     this.state = {
       search: 'off',
-      modal: 'off',
+      menu: 'off',
     }
   }
   
   openModal() {
     let _modal = null;
 
-    if(this.state.modal === 'on') {
+    if(this.state.menu === 'on') {
       _modal = 
-      <div className="js-modal">
-        <div className="modal">
+      <div className="js-menu">
+        <div className="menu openMenu">
           <div className="content">
             <button onClick={function(e){
               alert('서비스를 준비중입니다.')
@@ -44,15 +44,15 @@ class App extends Component {
       <div className="App">
         <Head
           search={this.state.search}
-          modal={this.state.modal}
+          menu={this.state.menu}
           onChangeQuery={function(_search){
             this.setState({
                 search: _search,
             })
           }.bind(this)}
-          onModal={function(_modal){
+          onMenu={function(_menu){
             this.setState({
-              modal: _modal,
+              menu: _menu,
             })
           }.bind(this)}
         ></Head>
