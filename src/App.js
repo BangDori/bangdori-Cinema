@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Head from './components/Head';
 import Body from './components/Body';
 import Foot from './components/Foot';
-import './modal.css';
+import './menu.css';
 import './app.css'
 
 
@@ -24,14 +24,12 @@ class App extends Component {
 
     if(this.state.menu === 'on') {
       _modal = 
-      <div className="js-menu">
-        <div className="menu openMenu">
-          <div className="content">
-            <button onClick={function(e){
-              alert('서비스를 준비중입니다.')
-            }}>로그인</button>
-            <button>예약 상황</button>
-          </div>
+      <div className="js-menu openMenu">
+        <div className="content">
+          <button onClick={function(e){
+            alert('서비스를 준비중입니다.')
+          }}>로그인</button>
+          <button>예약 상황</button>
         </div>
       </div>
     }
