@@ -11,8 +11,10 @@ export default class Logo extends Component {
         return(
             
             <div className="logo">
-                <img src="/images/logo.png" alt="Bangdori Cinema logo" />
-                뱅도리 시네마
+                <a href="/">
+                    <img src="/images/logo.png" alt="Bangdori Cinema logo" />
+                    뱅도리 시네마
+                </a>
             </div>
         )
     }
