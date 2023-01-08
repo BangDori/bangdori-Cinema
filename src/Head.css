@@ -10,13 +10,17 @@ header {
     background-color: rgba(245, 98, 77, 0.4);
 }
 
-header .logo {
+header .logo{
     flex-grow: 1;
-    color: rgb(245, 98, 77);
-    font-weight: bold;
 }
 
-.logo > img {
+header .logo a{
+    color: rgb(245, 98, 77);
+    font-weight: bold;
+    text-decoration: none;    
+}
+
+.logo>a>img{
     width: 36px;
     vertical-align: middle;
     margin: 3px;
