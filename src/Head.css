@@ -1,0 +1,89 @@
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 30px;
+
+    border-bottom: 1px solid #ccc;
+    font-weight: 550;
+    font-size: 24px;
+
+    background-color: rgba(245, 98, 77, 0.4);
+}
+
+header .logo {
+    flex-grow: 1;
+    color: rgb(245, 98, 77);
+    font-weight: bold;
+}
+
+.logo > img {
+    width: 36px;
+    vertical-align: middle;
+    margin: 3px;
+}
+
+header .search-form {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-form > form {
+    display: inline;
+    position: relative;
+}
+
+#decoSearch {
+    position: absolute;
+    top: -28px;
+    width: 96px;
+    left: -20px;
+
+    z-index: 1;
+}
+
+.search-form input[type=text] {
+    position: relative;
+    padding: 8px 0 8px 15px;
+    width: 80%;
+    height: 16px;
+    border: 1px solid black;
+    border-radius: 40px;
+}
+
+#cancel {
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    width: 12px;
+
+    cursor: pointer;
+}
+
+header .menu {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.menu > img {
+    position: absolute;
+}
+
+#decoMenu {
+    width: 64px;
+    top: 0;
+    right: 16px;
+
+    z-index: 3;
+}
+
+#menu {
+    filter: invert(100);
+    top: 20px;
+    right: 72px;
+    margin: 3px;
+    width: 36px;
+    vertical-align: middle;
+
+    cursor: pointer;
+    z-index: 3;
+}
