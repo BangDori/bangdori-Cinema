@@ -27,9 +27,9 @@ export default class Head extends Component {
                 ></Search>
 
                 <Menu
-                    modal={this.props.modal}
-                    onModal={function(_modal){
-                        this.props.onModal(_modal);
+                    menu={this.props.menu}
+                    onMenu={function(_menu){
+                        this.props.onMenu(_menu);
                     }.bind(this)}                    
                 ></Menu>
             </header>
