@@ -1,4 +1,4 @@
-.js-modal{
+.js-menu{
     position: absolute;
     top: 0;
     left: 0;
@@ -6,18 +6,20 @@
     bottom: 0;
 }
 
-.modal {
+.js-menu .menu {
     position: absolute;
     top: 0;
     right: 0;
     
     border: 1px solid rgba(127, 127, 127, 0.3);
     background-color: rgba(242, 210, 189, 0.3);
-
     z-index: 2;
+
+    animation: openMenu 1s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
-.modal .content {
+.menu .content {
     padding-top: 64px;
     width: 100%;
     height: 100%;
@@ -28,7 +30,7 @@
     align-items: center;
 }
 
-.modal .content > button{
+.menu .content > button{
     background-color:darksalmon;
     border: 1px solid #ccc;
     height: 30px;
@@ -41,7 +43,7 @@
     cursor: pointer;
 }
 
-.modal .content > button:hover {
+.menu .content > button:hover {
     color: rgba(127, 127, 127, 0.8);
 
     /* animation: fontUp .5s linear;
@@ -53,7 +55,27 @@
         color: black;
     }
 
-    100% {
+    to {
         color: rgba(127, 127, 127, 0.8);
+    }
+}
+
+@keyframes openMenu {
+    from {
+        top: -250px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes closeMenu {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -250px;
     }
 }
