@@ -64,12 +64,37 @@ header .search-form {
 #cancel {
     position: absolute;
     top: 4px;
-    right: 22px;
+    right: 54px;
     width: 12px;
 
     cursor: pointer;
 
     z-index: 1;
+}
+
+.search-button {
+    border: none;
+    position: absolute;
+
+    display: inline-block;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: bisque;
+
+    z-index: 1;
+    
+    cursor: pointer;
+    top: -6px;
+    right: 10px;
+}
+
+.search-box:hover {
+    background-color: pink;
+}
+
+#searchIcon {
+    width: 16px;
+    vertical-align: middle;
 }
 
 header .menu {
@@ -83,7 +108,7 @@ header .menu {
 
 #decoMenu {
     width: 64px;
-    top: 0;
+    top: -6px;
     right: 16px;
 
     z-index: 3;
