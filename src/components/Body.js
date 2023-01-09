@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navigation from './Body/Navigation';
 import Content from './Body/Content';
-import '../navigation.css';
-import '../content.css';
+import '../assets/navigation.css';
+import '../assets/content.css';
 
 export default class Body extends Component {
     shouldComponentUpdate(newProps) {
@@ -27,6 +27,7 @@ export default class Body extends Component {
                 ></Navigation>
 
                 <Content
+                    section={this.props.section}
                     topic={this.props.topic}
                     content={this.props.content}
                 ></Content>

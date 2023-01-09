@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Head from './components/Head';
 import Body from './components/Body';
 import Foot from './components/Foot';
-import './menu.css';
-import './app.css'
+import './assets/menu.css';
+import './assets/app.css';
 
 
 // 낮은 해상도의 PC, 태블릿 가로 : ~768px
@@ -27,12 +27,19 @@ class App extends Component {
         ['7번방의 선물', '극한 직업', '수상한 그녀', '과속 스캔들', '써니'],
         ['설국열차', '괴물', '신과함께', '승리호', '전우치']
       ],
+      foreignMovie: [
+        ['테이큰', '샌 안드레아스', '메이즈러너', '존윅', '킹스맨'],
+        ['스파이', '킬러의 보디가드', '리틀맨', '세 얼간이', '데드풀'],
+        ['판의 미로', '신비한 동물사전', '반지의 제왕', '해리포터', '헝거게임']
+      ],
     }
   }
 
   checkSection() {
     if(this.state.section === 1) {
       return this.state.koreaMovie;
+    } else {
+      return this.state.foreignMovie;
     }
   }
 

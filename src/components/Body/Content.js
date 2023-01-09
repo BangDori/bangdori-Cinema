@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 export default class Content extends Component {
 
+    getCountry() {
+        if(this.props.section === 1) {
+            return "/images/korea/";
+        } else {
+            return "/images/foreign/"
+        }
+    }
+
     loadContent(_content) {
         let _lists = [];
         let content = _content;
@@ -11,7 +19,7 @@ export default class Content extends Component {
             _lists.push(
                 <div className="movie">
                     <div className="poster">
-                        <img src={"/images/korea/" + content[i] + ".jpg"} alt={content[i]} />
+                        <img src={this.getCountry() + content[i] + ".jpg"} alt={content[i]} />
                     </div>
                     <div className="movie-info">
                         <div className="movie-title">{content[i]}</div>

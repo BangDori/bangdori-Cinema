@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Logo from './Head/Logo';
 import Search from './Head/Search';
 import Menu from './Head/Menu.js';
-import '../Head.css';
+import '../assets/Head.css';
 
 export default class Head extends Component {
     shouldComponentUpdate(newProps, newState) {
