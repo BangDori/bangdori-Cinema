@@ -49,6 +49,9 @@ export default class Navigation extends Component {
         return(
             <nav className="button-navigation">
                 <div className="space"></div>
+                <div id="quotes">
+                    Life is like a moive.
+                </div>
                 <div className="button-space">
                     <img id="decoNav" src="/images/snowman.png" alt="snowman" />
                     <ul className="button-list">
