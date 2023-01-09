@@ -35,19 +35,28 @@ export default class Search extends Component {
         return(
             <div className="search-form">
                 <form
+                    name="search"
                     action="/search-process"
                     method="post"
                     onSubmit={function(e){
-                        alert('서비스를 준비중입니다.')
+                        console.log("onSubmit");
                         e.preventDefault();
+                        alert('서비스를 준비중입니다.')
                     }}
                 >
                     <img id="decoSearch" src="/images/decoSearch.png" alt="SearchFrom decoration"/>
                     <input id="query" type="text" name="query" placeholder="영화 제목을 입력해주세요" 
                         onChange={function(e){
-                            this.props.onChangeQuery('on');
+                            if(e.target.value === '') {
+                                this.props.onChangeQuery('off');
+                            } else {
+                                this.props.onChangeQuery('on');
+                            }
                         }.bind(this)}
                     />
+                    <button type="submit" className="search-button">
+                        <img id="searchIcon" src="/images/searchIcon.png" alt="Search Icon" />
+                    </button>
                     
                     {this.checkSearch()}
                 </form>
