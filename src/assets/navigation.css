@@ -1,4 +1,5 @@
 .button-navigation {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +19,39 @@
     height: 32px;
     background-color: #ffc3a0;
     opacity: 0.8;    
+}
+
+#quotes {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+
+    font-size: 48px;
+    transform: rotate(-24deg);
+
+
+    background-image: linear-gradient(
+        -225deg,
+        red 0%,
+        powderblue 50%,
+        orange 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .button-space {
