@@ -19,7 +19,7 @@
       "type": "image/png"
     },
     {
-      "src": "images/favicon.ico",
+      "src": "favicon.ico",
       "type": "image/x-icon"
     },
     {
@@ -28,6 +28,10 @@
     },
     {
       "src": "images/menu.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/snowman.png",
       "type": "image/png"
     }
   ],
