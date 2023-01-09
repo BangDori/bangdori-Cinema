@@ -1,0 +1,20 @@
+footer {
+    position: relative;
+    margin-top: 64px;
+    padding: 8px;
+    border-top: 1px solid #ccc;
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.describe {
+    font-size: 14px;
+}
+
+.myInfo {
+    margin-top: 32px;
+    font-size: 12px;
+}

@@ -1,0 +1,78 @@
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.topic {
+    display: flex;
+    flex-direction: column;
+
+    margin: 8px 0;
+}
+
+.topic-name {
+    margin: 16px 32px;
+    text-align: center;
+
+    font-size: 32px;
+    border-bottom: 1px solid #ccc;
+}
+
+.topic-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    padding: 16px 0;
+}
+
+.movie{
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 32px;
+    width: 196px;
+}
+
+.movie .poster{
+    width: 100%;
+    height: 100%;
+}
+
+.movie .poster>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    border-radius: 10px;
+}
+
+.movie .movie-info{
+    position: relative;
+    margin: 16px 0 8px;
+}
+
+.movie-info .movie-title {
+    display: inline-block;
+    padding-left: 8px;
+    font-size: 21px;
+}
+
+.movie-info .movie-reservation {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+
+.movie-info .movie-reservation>button {
+    font-size: 16px;
+    padding: 4px;
+
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.movie-info .movie-reservation>button:hover {
+    background-color: pink;
+}
