@@ -3,7 +3,6 @@ header {
     flex-direction: row;
     padding: 16px 32px;
 
-    border-bottom: 1px solid #ccc;
     font-weight: 550;
     font-size: 24px;
 
@@ -88,7 +87,7 @@ header .search-form {
     right: 10px;
 }
 
-.search-box:hover {
+.search-button:hover {
     background-color: pink;
 }
 
