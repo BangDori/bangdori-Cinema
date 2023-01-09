@@ -39,7 +39,6 @@ export default class Search extends Component {
                     action="/search-process"
                     method="post"
                     onSubmit={function(e){
-                        console.log("onSubmit");
                         e.preventDefault();
                         alert('서비스를 준비중입니다.')
                     }}
