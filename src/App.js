@@ -16,7 +16,70 @@ class App extends Component {
     this.state = {
       search: 'off',
       menu: 'off',
+      section: 1,
+      button: [
+          {id: 1, name: '한국 영화'},
+          {id: 2, name: '외국 영화'}
+      ],
+      topic: ['액션', '코미디', '판타지'],
+      koreaMovie: [
+        ['아저씨', '암살', '베테랑', '범죄도시', '마녀'],
+        ['7번방의 선물', '극한 직업', '수상한 그녀', '과속 스캔들', '써니'],
+        ['설국열차', '괴물', '신과함께', '승리호', '전우치']
+      ],
     }
+  }
+
+  checkSection() {
+    if(this.state.section === 1) {
+      return this.state.koreaMovie;
+    }
+  }
+
+  checkDevice() {
+    let _screen = null;
+    if(window.innerWidth >= 768) {
+      _screen =
+      <div className='App'>
+        <Head
+          search={this.state.search}
+          menu={this.state.menu}
+          onChangeQuery={function(_search){
+            this.setState({
+                search: _search,
+            })
+          }.bind(this)}
+          onMenu={function(_menu){
+            this.setState({
+              menu: _menu,
+            })
+          }.bind(this)}
+        ></Head>
+
+        <Body
+          section={this.state.section}
+          button={this.state.button}
+          topic={this.state.topic}
+          content={this.checkSection()}
+          onChangeSection={function(_section){
+            this.setState({
+              section: Number(_section),
+            })
+          }.bind(this)}
+        ></Body>
+
+        <Foot></Foot>
+
+        {this.openModal()}
+      </div>
+    } else {
+      _screen = 
+      <div className='App'>
+        <h1>준비중입니다.</h1>
+      </div>
+    }
+
+    return _screen;
   }
   
   openModal() {
@@ -39,25 +102,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Head
-          search={this.state.search}
-          menu={this.state.menu}
-          onChangeQuery={function(_search){
-            this.setState({
-                search: _search,
-            })
-          }.bind(this)}
-          onMenu={function(_menu){
-            this.setState({
-              menu: _menu,
-            })
-          }.bind(this)}
-        ></Head>
-        <Body></Body>
-        <Foot></Foot>
-
-        {this.openModal()}
+      <div className="Screen">
+        {this.checkDevice()}
       </div>
     )
   }
