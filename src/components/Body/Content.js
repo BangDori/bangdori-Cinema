@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 export default class Content extends Component {
+    shouldComponentUpdate(newProps) {
+        if(this.props.section === newProps.section) {
+            return false;
+        }
 
+        return true;
+    }
+    
     getCountry() {
         if(this.props.section === 1) {
             return "/images/korea/";
