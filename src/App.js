@@ -4,11 +4,10 @@ import Body from './components/Body';
 import Foot from './components/Foot';
 import './assets/menu.css';
 import './assets/app.css';
-
+import './assets/ticketing.css';
 
 // 낮은 해상도의 PC, 태블릿 가로 : ~768px
-// 모바일 가로, 태블릿 : 480px ~ 767px
-// 준비중!
+// 모바일 가로, 태블릿 : 480px ~ 767px 준비중!
 
 class App extends Component {  
   constructor(props) {
@@ -32,6 +31,8 @@ class App extends Component {
         ['스파이', '킬러의 보디가드', '리틀맨', '세 얼간이', '데드풀'],
         ['판의 미로', '신비한 동물사전', '반지의 제왕', '해리포터', '헝거게임']
       ],
+      ticketing: 'off',
+      selectedMovie: {mode: 'off', title: 'none'}
     }
   }
 
@@ -64,6 +65,7 @@ class App extends Component {
         ></Head>
 
         <Body
+          ticketing={this.state.ticketing}
           section={this.state.section}
           button={this.state.button}
           topic={this.state.topic}
@@ -73,11 +75,22 @@ class App extends Component {
               section: Number(_section),
             })
           }.bind(this)}
+          onChangeTicketing={function(_ticketing){
+            this.setState({
+              ticketing: _ticketing,
+            })
+          }.bind(this)}
+          ticketingMovie={function(_title){
+            this.setState({
+              selectedMovie: {mode: 'on', title: _title},
+            })
+          }.bind(this)}
         ></Body>
 
         <Foot></Foot>
 
-        {this.openModal()}
+        {this.openMenu()}
+        {this.openTicketing()}
       </div>
     } else {
       _screen = 
@@ -89,7 +102,7 @@ class App extends Component {
     return _screen;
   }
   
-  openModal() {
+  openMenu() {
     let _modal = null;
 
     if(this.state.menu === 'on') {
@@ -105,6 +118,106 @@ class App extends Component {
     }
 
     return _modal;
+  }
+
+  openTicketing() {
+    let _modal = null;
+
+    if(this.state.selectedMovie.mode === 'on') {
+      _modal =
+      <div className="js-modal">
+        <div className="modal">
+          <div className="reservation-box">
+            <img
+              className="cancel"
+              src="/images/cancel.png"
+              alt="cancel button"
+              onClick={function(){
+                this.setState({
+                  selectedMovie: {mode: 'off'},
+                })
+              }.bind(this)}
+            />
+            <div className="reservation-movie">
+              <div className="movie-title">
+                {"<" + this.state.selectedMovie.title + ">"}
+              </div>
+              <div className="movie-poster">
+                <img src={this.getCountry() + this.state.selectedMovie.title + ".jpg"} alt="movie poster" />
+              </div>
+            </div>
+            <div className="seat-availability">
+              <div className="seat-title">
+                {"<좌석 현황>"}
+              </div>
+              <div className="movie-screen">
+                <div className="screen">
+                  Screen
+                </div>
+              </div>
+              <div className="reservation-seat">
+                {this.getRowSeat(this.state.selectedMovie.title)}
+              </div>
+              <div class="buy-button">
+                <button>예매하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    return _modal;
+  }
+
+  getCountry() {
+    if(this.state.section === 1) {
+      return "/images/korea/";
+    } else {
+      return "/images/foreign/";
+    }
+  }
+
+  getRowSeat(_title) {
+    let _seats = [];
+    let i = 1;
+
+    while(i <= 5) {
+      _seats.push(
+        <div key={i}>
+          {this.getColSeat(i, _title)}
+        </div>
+      )
+
+      i += 1;
+    }
+
+    return _seats;
+  }
+
+  getColSeat(index, _title) {
+    let _lists = [];
+    let i = 0;
+
+    while (i < 15) {
+      _lists.push(
+        <button
+          key={index + "," + i}
+          className="unSelected"
+          onClick={function(e){
+            if(e.target.className === 'unSelected') {
+              e.target.className = 'selected';
+            } else if(e.target.className === 'selected') {
+              alert('이미 예약된 좌석입니다.');
+            }
+          }}
+        ></button>
+      )
+
+      i += 1;
+    }
+
+    return _lists;
   }
 
   render() {
