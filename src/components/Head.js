@@ -14,7 +14,8 @@ export default class Head extends Component {
     }
 
     render() {
-        console.log("Head Rendering");
+        // console.log("Head Rendering");
+
         return(
             <header>
                 <Logo></Logo>
