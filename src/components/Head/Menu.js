@@ -10,7 +10,7 @@ export default class Menu extends Component {
     }
 
     render() {
-        console.log("Menu rendering");
+        // console.log("Menu rendering");
         
         return(
             <div className="menu">
