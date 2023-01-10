@@ -1,0 +1,141 @@
+.js-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+
+    overflow: hidden;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.reservation-box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    background-color: white;
+    padding: 16px;
+    gap: 32px;
+}
+
+.cancel {
+    position: absolute;
+    width: 16px;
+    top: 16px;
+    right: 16px;
+
+    cursor: pointer;
+}
+
+.reservation-movie {
+    margin: 0 32px 0 16px;
+}
+
+.movie-title {
+    font-size: 24px;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.reservation-movie .movie-poster {
+    width: 288px;
+}
+
+.reservation-movie .movie-poster>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seat-availability {
+    display: flex;
+    flex-direction: column;
+}
+
+.seat-availability .seat-title {
+    margin: 8px 0 16px 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.seat-availability .movie-screen {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: rgba(127, 127, 127, .2);
+}
+
+.seat-availability .movie-screen .screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.seat-availability .reservation-seat {
+    padding: 16px 0 0;
+}
+
+.reservation-seat>div {
+    margin: 16px 0;
+}
+
+.reservation-seat>div>button {
+    padding: 8px;
+
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.reservation-seat>div>.unSelected:hover {
+    background-color: orange;
+}
+
+.selected {
+    background-color: red;
+}
+
+.reservation-seat>div>button:nth-child(4),
+.reservation-seat>div>button:nth-child(11),
+.reservation-seat>div>button:nth-child(19),
+.reservation-seat>div>button:nth-child(26),
+.reservation-seat>div>button:nth-child(34),
+.reservation-seat>div>button:nth-child(41),
+.reservation-seat>div>button:nth-child(49),
+.reservation-seat>div>button:nth-child(56),
+.reservation-seat>div>button:nth-child(64),
+.reservation-seat>div>button:nth-child(71) {
+    margin-right: 16px;
+}
+
+.buy-button {
+    text-align: center;
+}
+
+.buy-button>button {
+    font-size: 18px;
+    padding: 4px 8px;
+
+    cursor: pointer;
+}
+
+.buy-button>button:hover {
+    border: 1px solid #ccc;
+    background-color: bisque;
+}
