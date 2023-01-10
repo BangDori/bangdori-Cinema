@@ -17,24 +17,32 @@ export default class Content extends Component {
         }
     }
 
-    loadContent(_content) {
+    loadPoster(_content) {
         let _lists = [];
         let content = _content;
         let i = 0;
 
         while(i < content.length) {
             _lists.push(
-                <div className="movie">
                     <div className="poster">
                         <img src={this.getCountry() + content[i] + ".jpg"} alt={content[i]} />
                     </div>
-                    <div className="movie-info">
-                        <div className="movie-title">{content[i]}</div>
-                        <div className="movie-reservation">
-                            <button>예매하기</button>
-                        </div>
-                    </div>
-                </div>
+            )
+
+            i += 1;
+        }
+
+        return _lists;
+    }
+
+    loadTitle(_content) {
+        let _lists = [];
+        let content = _content;
+        let i = 0;
+
+        while(i < content.length) {
+            _lists.push(
+                <button className="movie-title">{content[i]}</button>
             )
 
             i += 1;
@@ -52,11 +60,16 @@ export default class Content extends Component {
         while(i < topic.length) {
             _lists.push(
                 <div key={i} className="topic">
-                    <div className="topic-name">
+                    {/* <div className="topic-name">
                         {this.props.topic[i]}
-                    </div>
+                    </div> */}
                     <div className="topic-content">
-                        {this.loadContent(content[i])}
+                        <div className="movie">
+                           {this.loadPoster(content[i])}
+                        </div>
+                        <div key={i} className="movie-info">
+                            {this.loadTitle(content[i])}
+                        </div>
                     </div>
                 </div>
             )
@@ -69,8 +82,16 @@ export default class Content extends Component {
 
     render() {
         return(
-            <section>
-                {this.loadTopic()}
+            <section className="vending-machine">
+                <div className="exhibition-poster">
+                    {this.loadTopic()}
+                    <div className="push-box">
+                        Push
+                    </div>
+                </div>
+                <div className="interaction-box">
+                    dd
+                </div>
             </section>
         )
     }
