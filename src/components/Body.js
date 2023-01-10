@@ -5,16 +5,8 @@ import '../assets/navigation.css';
 import '../assets/content.css';
 
 export default class Body extends Component {
-    shouldComponentUpdate(newProps) {
-        if(this.props.section === newProps.section) {
-            return false;
-        }
-
-        return true;
-    }
-    
     render() {
-        console.log("Body render");
+        // console.log("Body render");
 
         return(
             <article>
@@ -27,9 +19,16 @@ export default class Body extends Component {
                 ></Navigation>
 
                 <Content
+                    ticketing={this.props.ticketing}
                     section={this.props.section}
                     topic={this.props.topic}
                     content={this.props.content}
+                    onChangeTicketing={function(_ticketing){
+                        this.props.onChangeTicketing(_ticketing);
+                    }.bind(this)}
+                    ticketingMovie={function(_title){
+                        this.props.ticketingMovie(_title);
+                    }.bind(this)}
                 ></Content>
             </article>
         )
