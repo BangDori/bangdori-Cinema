@@ -32,7 +32,8 @@ class App extends Component {
         ['판의 미로', '신비한 동물사전', '반지의 제왕', '해리포터', '헝거게임']
       ],
       ticketing: 'off',
-      selectedMovie: {mode: 'off', title: 'none'}
+      selectedMovie: {mode: 'off', title: 'none'},
+      reservation_history: [],
     }
   }
 
@@ -112,7 +113,10 @@ class App extends Component {
           <button onClick={function(e){
             alert('서비스를 준비중입니다.')
           }}>로그인</button>
-          <button>예약 상황</button>
+          <button onClick={function(e){
+            console.log(this.state.reservation_history);
+          }.bind(this)}
+          >예약 상황</button>
         </div>
       </div>
     }
@@ -158,8 +162,30 @@ class App extends Component {
               <div className="reservation-seat">
                 {this.getRowSeat(this.state.selectedMovie.title)}
               </div>
-              <div class="buy-button">
-                <button>예매하기</button>
+              <div className="buy-button">
+                <button onClick={function(e){
+                  let selected_seat = document.querySelectorAll(".selected");
+
+                  if(selected_seat === null || selected_seat === undefined) {
+                    alert('좌석은 먼저 선택헤주세요.');
+                  }
+
+                  let _reservation_history = Array.from(this.state.reservation_history);
+                  if(window.confirm("좌석을 예매하시겠습니까?")) {
+                    selected_seat.forEach((seat) => {
+                      seat.classList.remove("selected");
+                      seat.classList.add("booked");
+                      
+                      _reservation_history.push(seat.id);
+                    })
+                    
+                    this.setState({
+                      reservation_history: _reservation_history,
+                    })
+
+                    alert('정상적으로 예매되셨습니다.');
+                  }
+                }.bind(this)}>예매하기</button>
               </div>
             </div>
           </div>
@@ -197,17 +223,21 @@ class App extends Component {
 
   getColSeat(index, _title) {
     let _lists = [];
-    let i = 0;
+    let i = 1;
 
-    while (i < 15) {
+    while (i <= 15) {
+      let _id = _title + "-" + index + "-" + i;
       _lists.push(
         <button
           key={index + "," + i}
-          className="unSelected"
+          id={_id}
+          className={this.checkBookMovie(_id)}
           onClick={function(e){
             if(e.target.className === 'unSelected') {
               e.target.className = 'selected';
             } else if(e.target.className === 'selected') {
+              e.target.className = 'unSelected';
+            } else if(e.target.className === 'booked') {
               alert('이미 예약된 좌석입니다.');
             }
           }}
@@ -218,6 +248,14 @@ class App extends Component {
     }
 
     return _lists;
+  }
+
+  checkBookMovie(id) {
+    if(this.state.reservation_history.includes(id)) {
+      return 'booked';
+    } else {
+      return 'unSelected';
+    }
   }
 
   render() {
