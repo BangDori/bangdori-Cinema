@@ -40,14 +40,6 @@ class App extends Component {
     }
   }
 
-  checkSection() {
-    if(this.state.section === 1) {
-      return this.state.koreaMovie;
-    } else {
-      return this.state.foreignMovie;
-    }
-  }
-
   checkDevice() {
     let _screen = null;
     if(window.innerWidth >= 768) {
@@ -100,11 +92,45 @@ class App extends Component {
     } else {
       _screen = 
       <div className='App'>
-        <h1>준비중입니다.</h1>
+        <Body
+          ticketing={this.state.ticketing}
+          section={this.state.section}
+          button={this.state.button}
+          topic={this.state.topic}
+          content={this.checkSection()}
+          onChangeSection={function(_section){
+            this.setState({
+              section: Number(_section),
+            })
+          }.bind(this)}
+          onChangeTicketing={function(_ticketing){
+            this.setState({
+              ticketing: _ticketing,
+            })
+          }.bind(this)}
+          ticketingMovie={function(_title){
+            this.setState({
+              selectedMovie: {mode: 'on', title: _title},
+            })
+          }.bind(this)}
+        ></Body>
+
+        <Foot></Foot>
+
+        {this.openMenu()}
+        {this.openTicketing()}
       </div>
     }
 
     return _screen;
+  }
+
+  checkSection() {
+    if(this.state.section === 1) {
+      return this.state.koreaMovie;
+    } else {
+      return this.state.foreignMovie;
+    }
   }
   
   openReservationHistory() {

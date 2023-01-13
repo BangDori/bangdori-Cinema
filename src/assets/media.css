@@ -34,4 +34,66 @@
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
 @media all and (max-width:767px) {
 
+    #quotes {
+        font-size: 16px;
+        top: 25px;
+        left: 12px;
+    }
+
+    .App {
+        width: 100%;
+        height: 100%;
+    }
+
+    .topic-name {
+        left: 45%;
+    }
+
+    .movie .poster {
+        width: 48px;
+    }
+
+    .movie-info .movie-title {
+        width: 48px;
+        font-size: 10px;
+    }
+
+    .push-box {
+        position: relative;
+        font-size: 24px;
+        padding: 24px;
+        margin: 16px auto;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .mobile-box {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .lightskyblue-box {
+        position: absolute;
+        width: 64px;
+        text-align: center;
+        font-size: 12px;
+        bottom: 55px;
+        left: 10%;
+    }
+
+    .ticketing-box {
+        margin: 0;
+        position: absolute;
+        right: 10%;
+        bottom: 75px;
+    }
+
+    .cancel-button {
+        bottom: 15px;
+        right: 9%;
+        padding: 16px;
+    }
 }

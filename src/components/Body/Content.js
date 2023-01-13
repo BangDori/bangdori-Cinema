@@ -34,6 +34,7 @@ export default class Content extends Component {
 
         return '';
     }
+
     checkTicketing() {
         if(this.props.ticketing === 'on') {
             return 'ticketing-on';
@@ -96,6 +97,47 @@ export default class Content extends Component {
         return _lists;
     }
 
+    checkDevice() {
+        let _article = null;
+        
+        if(window.innerWidth >= 768) {
+            _article = 
+            <div className="interaction-box">
+                <div className="lightskyblue-box">{this.onCheckTicket()}</div>
+                <div className="whiteOpacity-box-1"></div>
+                <div className="whiteOpacity-box-2"></div>
+                <div className="ticketing-box">
+                    <button onClick={function(){
+                        this.props.onChangeTicketing('on');
+                    }.bind(this)}>예매</button>
+                </div>
+                <div className="cancel-button"
+                    onClick={function(){
+                        this.props.onChangeTicketing('off');
+                    }.bind(this)}
+                ></div>
+            </div>
+        } else {
+            _article = 
+            <div className="mobile-box">
+                <div className="lightskyblue-box">{this.onCheckTicket()}</div>
+
+                <div className="ticketing-box">
+                    <button onClick={function(){
+                        this.props.onChangeTicketing('on');
+                    }.bind(this)}>예매</button>
+                </div>
+                <div className="cancel-button"
+                    onClick={function(){
+                        this.props.onChangeTicketing('off');
+                    }.bind(this)}
+                ></div>
+            </div>
+        }
+
+        return _article;
+    }
+
     render() {
         return(
             <section className="vending-machine">
@@ -106,21 +148,8 @@ export default class Content extends Component {
                             Push
                         </div>
                     </div>
-                    <div className="interaction-box">
-                        <div className="lightskyblue-box">{this.onCheckTicket()}</div>
-                        <div className="whiteOpacity-box-1"></div>
-                        <div className="whiteOpacity-box-2"></div>
-                        <div className="ticketing-box">
-                            <button onClick={function(){
-                                this.props.onChangeTicketing('on');
-                            }.bind(this)}>예매</button>
-                        </div>
-                        <div className="cancel-button"
-                            onClick={function(){
-                                this.props.onChangeTicketing('off');
-                            }.bind(this)}
-                        ></div>
-                    </div>
+
+                    {this.checkDevice()}
                 </div>
             </section>
         )
