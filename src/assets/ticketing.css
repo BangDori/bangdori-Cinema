@@ -108,6 +108,10 @@
 }
 
 .selected {
+    background-color: orange;
+}
+
+.booked {
     background-color: red;
 }
 
