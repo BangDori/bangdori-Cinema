@@ -5,6 +5,7 @@ import Foot from './components/Foot';
 import './assets/menu.css';
 import './assets/app.css';
 import './assets/ticketing.css';
+import './assets/reservation.css';
 
 // 낮은 해상도의 PC, 태블릿 가로 : ~768px
 // 모바일 가로, 태블릿 : 480px ~ 767px 준비중!
@@ -34,6 +35,7 @@ class App extends Component {
       ticketing: 'off',
       selectedMovie: {mode: 'off', title: 'none'},
       reservation_history: [],
+      open_reservation_history: 'off',
     }
   }
 
@@ -92,6 +94,7 @@ class App extends Component {
 
         {this.openMenu()}
         {this.openTicketing()}
+        {this.openReservationHistory()}
       </div>
     } else {
       _screen = 
@@ -103,6 +106,54 @@ class App extends Component {
     return _screen;
   }
   
+  openReservationHistory() {
+    let _article = null;
+
+    if(this.state.open_reservation_history === 'on') {
+      _article =
+      <div className="js-modal">
+        <div className="modal">
+          <div className="reservation-history">
+            <img 
+              className="cancel"
+              src="/images/cancel.png"
+              alt="cancel"
+              onClick={function(e){
+                this.setState({
+                  open_reservation_history: 'off',
+                })
+              }.bind(this)}
+            />
+            {this.loadReservation()}
+          </div>
+        </div>
+      </div>
+    }
+
+    return _article;
+  }
+
+  loadReservation() {
+    let _lists = [];
+    let i = 0;
+    let record = this.state.reservation_history;
+
+    console.log(record);
+    if(record.length === 0) {
+      return <div className="reservation">현재 예약된 좌석이 존재하지 않습니다.</div>
+    }
+
+    while(i < record.length) {
+      _lists.push(
+        <div key={i} className="reservation">{record[i]}</div>
+      )
+
+      i += 1;
+    }
+
+    return _lists;
+  }
+
   openMenu() {
     let _modal = null;
 
@@ -114,7 +165,9 @@ class App extends Component {
             alert('서비스를 준비중입니다.')
           }}>로그인</button>
           <button onClick={function(e){
-            console.log(this.state.reservation_history);
+            this.setState({
+              open_reservation_history: 'on',
+            })
           }.bind(this)}
           >예약 상황</button>
         </div>
