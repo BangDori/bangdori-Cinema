@@ -80,9 +80,9 @@ section {
     cursor: pointer;
 }
 
-.ticketing-box>button:hover {
+/* .ticketing-box>button:hover {
     color: rgba(127, 127, 127, 0.8);
-}
+} */
 
 .topic {
     padding: 8px 0;
@@ -176,9 +176,9 @@ section {
     background-color: bisque;
 }
 
-.ticketing-on:hover{
+/* .ticketing-on:hover{
     background-color: pink;
-}
+} */
 
 .push-box {
     text-align: center;

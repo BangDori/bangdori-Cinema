@@ -87,9 +87,9 @@ header .search-form {
     right: 10px;
 }
 
-.search-button:hover {
+/* .search-button:hover {
     background-color: pink;
-}
+} */
 
 #searchIcon {
     width: 16px;

@@ -79,9 +79,9 @@
     cursor: pointer;
 }
 
-.button-list>li>button:hover {
+/* .button-list>li>button:hover {
     background-color: bisque;
-}
+} */
 
 .selected-button{
     background-color: pink !important;

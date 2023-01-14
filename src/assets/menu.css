@@ -35,12 +35,10 @@
     cursor: pointer;
 }
 
-.js-menu .content > button:hover {
+/* .js-menu .content > button:hover {
     color: rgba(127, 127, 127, 0.8);
 
-    /* animation: fontUp .5s linear;
-    animation-fill-mode: forwards; */
-}
+} */
 
 @keyframes fontUp {
     from {
