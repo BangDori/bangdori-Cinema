@@ -1,8 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## bangdori cinema
+# bangdori cinema
 
 This project is toy project that reserve the movie ticket on website.
 
