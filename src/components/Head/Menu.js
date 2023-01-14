@@ -10,8 +10,6 @@ export default class Menu extends Component {
     }
 
     render() {
-        console.log("Menu rendering");
-        
         return(
             <div className="menu">
                 <img id="decoMenu" src="/images/tree.png" alt="Menu decoration"></img>

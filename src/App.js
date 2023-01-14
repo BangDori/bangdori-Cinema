@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Head from './components/Head';
+import Logo from './components/Head/Logo'
 import Body from './components/Body';
 import Foot from './components/Foot';
 import './assets/menu.css';
@@ -92,6 +93,7 @@ class App extends Component {
     } else {
       _screen = 
       <div className='App'>
+        <Logo></Logo>
         <Body
           ticketing={this.state.ticketing}
           section={this.state.section}
@@ -165,7 +167,6 @@ class App extends Component {
     let i = 0;
     let record = this.state.reservation_history;
 
-    console.log(record);
     if(record.length === 0) {
       return <div className="reservation">현재 예약된 좌석이 존재하지 않습니다.</div>
     }
@@ -246,8 +247,9 @@ class App extends Component {
                 <button onClick={function(e){
                   let selected_seat = document.querySelectorAll(".selected");
 
-                  if(selected_seat === null || selected_seat === undefined) {
-                    alert('좌석은 먼저 선택헤주세요.');
+                  if(selected_seat.length === 0) {
+                    alert('좌석을 선택해주세요.');
+                    return;
                   }
 
                   let _reservation_history = Array.from(this.state.reservation_history);
@@ -259,11 +261,12 @@ class App extends Component {
                       _reservation_history.push(seat.id);
                     })
                     
+                    alert('정상적으로 예매되셨습니다.');
+
                     this.setState({
                       reservation_history: _reservation_history,
+                      ticketing: 'off',
                     })
-
-                    alert('정상적으로 예매되셨습니다.');
                   }
                 }.bind(this)}>예매하기</button>
               </div>

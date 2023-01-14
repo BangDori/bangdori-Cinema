@@ -6,8 +6,6 @@ import '../assets/content.css';
 
 export default class Body extends Component {
     render() {
-        // console.log("Body render");
-
         return(
             <article>
                 <Navigation

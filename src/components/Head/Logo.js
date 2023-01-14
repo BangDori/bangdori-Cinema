@@ -6,8 +6,6 @@ export default class Logo extends Component {
     }
 
     render() {
-        console.log("Logo Rendering");
-
         return(
             
             <div className="logo">

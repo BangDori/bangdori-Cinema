@@ -44,8 +44,6 @@ export default class Navigation extends Component {
     }
 
     render() {
-        // console.log("Navigation render");
-
         return(
             <nav className="button-navigation">
                 <div className="space"></div>

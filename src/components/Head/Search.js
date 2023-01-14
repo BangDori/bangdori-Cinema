@@ -30,8 +30,6 @@ export default class Search extends Component {
     }
 
     render() {
-        console.log("Search rendering");
-
         return(
             <div className="search-form">
                 <form
