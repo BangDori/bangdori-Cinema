@@ -1,4 +1,4 @@
-# bangdori cinema
+# Bangdori Cinema
 
 This project is toy project that reserve the movie ticket on website.
 
