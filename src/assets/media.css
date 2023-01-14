@@ -139,6 +139,7 @@
 
     .reservation-seat>div>button {
         padding: 4px;
+        margin: 0;
     }
 
     .buy-button {
