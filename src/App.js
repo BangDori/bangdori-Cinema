@@ -10,7 +10,7 @@ import './assets/reservation.css';
 import './assets/media.css';
 
 // 낮은 해상도의 PC, 태블릿 가로 : ~768px
-// 모바일 가로, 태블릿 : 480px ~ 767px 준비중!
+// 모바일 가로, 태블릿 : 480px ~ 767px
 
 class App extends Component {  
   constructor(props) {
